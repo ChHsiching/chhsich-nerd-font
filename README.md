@@ -12,6 +12,7 @@
 - 提供完整的安装和卸载脚本
 - ✅ **新增：TTC字体集合文件** - 将所有字体样式打包到一个文件中，方便Windows用户安装
 - ✅ **新增：分卷压缩文件** - 提供分卷压缩版本，便于下载和分发
+- ✅ **新增：AUR包** - Arch Linux用户可通过 `yay -S chhsich-nerd-font` 或 `paru -S chhsich-nerd-font` 直接安装
 
 ## 功能
 
@@ -121,6 +122,20 @@ rm ChHsichNerdFont.part*
 详细说明请查看 [TTC_INSTALLATION.md](TTC_INSTALLATION.md)。
 
 ### 3. 安装字体到系统
+
+#### AUR安装（Arch Linux用户推荐）
+
+如果你使用的是Arch Linux或基于Arch的发行版，可以直接通过AUR安装：
+
+```bash
+# 使用yay安装
+yay -S chhsich-nerd-font
+
+# 或使用paru安装
+paru -S chhsich-nerd-font
+```
+
+这是最简单的安装方式，AUR包会自动处理字体安装和缓存更新。
 
 #### 自动安装（推荐）
 

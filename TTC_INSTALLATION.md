@@ -4,6 +4,20 @@
 
 TTC (TrueType Collection) 是一种字体文件格式，可以将多个相关的字体样式打包到一个文件中。这样可以简化字体的安装和管理过程。
 
+## 快速安装（Arch Linux用户）
+
+如果你使用的是Arch Linux或基于Arch的发行版，推荐直接通过AUR安装：
+
+```bash
+# 使用yay安装
+yay -S chhsich-nerd-font
+
+# 或使用paru安装
+paru -S chhsich-nerd-font
+```
+
+这是最简单的安装方式，AUR包会自动处理字体安装和缓存更新。
+
 ## 文件说明
 
 - `ChHsichNerdFont.ttc` - 包含所有16个ChHsich Nerd Font样式的字体集合文件
