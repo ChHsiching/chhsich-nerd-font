@@ -156,29 +156,6 @@ fc-cache -f -v
 - 字体名称已正确更新为 "ChHsich Nerd Font"
 - 字符替换成功：ComicShannsMono Nerd Font 的英文字符已替换到 Maple Mono NF CN 中
 
-## 开发历史
-
-### 提交历史
-1. **docs: 初始化项目文档** - 添加项目README文档
-2. **feat: 添加FontForge测试脚本** - 创建FontForge安装验证脚本
-3. **feat: 实现字体创建核心功能** - 实现主要的字体创建逻辑
-4. **feat: 添加字体验证脚本** - 创建字体验证工具
-5. **chore: 添加.gitignore文件** - 配置版本控制忽略规则
-6. **feat: 添加源字体文件** - 添加ComicShannsMono和MapleMono源字体
-7. **feat: 生成ChHsich Nerd Font字体文件** - 成功生成所有字体文件
-8. **docs: 更新README文档** - 完善项目文档和开发历史
-9. **feat: 添加许可证文件** - 添加SIL Open Font License 1.1许可证
-10. **feat: 添加安装和卸载脚本** - 提供完整的字体安装和卸载功能
-
-### 技术实现
-- 使用FontForge Python API进行字体操作
-- 实现Unicode字符范围定义和替换
-- 支持批量处理多个字体文件
-- 自动匹配字体样式和字重
-- 提供完整的验证和测试工具
-- 自动检测系统类型和字体目录
-- 支持字体缓存更新和清理
-
 ## 许可证
 
 本项目基于以下开源字体创建：
