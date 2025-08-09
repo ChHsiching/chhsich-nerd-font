@@ -46,4 +46,8 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Release files
+release/
+create_release_package.sh 
