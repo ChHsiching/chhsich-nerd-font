@@ -29,6 +29,32 @@
   - U+00D7 (乘号)
   - U+00F7 (除号)
 
+## 字体样例
+
+以下是ChHsichNerdFont字体的实际使用效果截图：
+
+### 代码编辑器示例
+
+![ChHsichNerdFont字体示例1](screenshot1.png)
+
+*ChHsichNerdFont字体在代码编辑器中的显示效果*
+
+### 终端示例
+
+![ChHsichNerdFont字体示例2](screenshot2.png)
+
+*ChHsichNerdFont字体在终端中的显示效果*
+
+### 字体特性
+
+ChHsichNerdFont字体特别适合编程使用，具有以下优势：
+
+- **优秀的中文字符显示** - 基于Maple Mono NF CN，中文字符清晰美观
+- **清晰的英文字符** - 基于ComicShannsMono，英文字符易于识别
+- **完整的Nerd图标支持** - 支持所有Nerd Font图标
+- **多权重支持** - 提供Thin到ExtraBold共9种字重
+- **斜体支持** - 每种字重都有对应的斜体版本
+
 ## 系统要求
 
 - Arch Linux (或其他支持 FontForge 的 Linux 发行版)
