@@ -50,4 +50,7 @@ Thumbs.db
 
 # Release files
 release/
-create_release_package.sh 
+create_release_package.sh
+
+# Large font files (use ttc_release/ for compressed versions)
+*.ttc 

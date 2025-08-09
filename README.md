@@ -10,6 +10,8 @@
 - 字体名称已正确更新为"ChHsich Nerd Font"
 - 字符替换成功完成
 - 提供完整的安装和卸载脚本
+- ✅ **新增：TTC字体集合文件** - 将所有字体样式打包到一个文件中，方便Windows用户安装
+- ✅ **新增：分卷压缩文件** - 提供分卷压缩版本，便于下载和分发
 
 ## 功能
 
@@ -31,12 +33,16 @@
 - Arch Linux (或其他支持 FontForge 的 Linux 发行版)
 - Python 3
 - FontForge
+- fontTools (用于创建TTC文件)
 
 ## 安装依赖
 
 ```bash
 # 安装 FontForge
 sudo pacman -S fontforge
+
+# 安装 fontTools (用于创建TTC文件)
+sudo pacman -S python-fonttools
 ```
 
 ## 使用方法
@@ -49,7 +55,9 @@ sudo pacman -S fontforge
    ├── ComicShannsMono/           # ComicShannsMono Nerd Font 文件
    ├── MapleMono-NF-CN-unhinted/  # Maple Mono NF CN 字体文件
    ├── ChHsichNerdFont/           # 输出目录 (生成的字体文件)
+   ├── ttc_release/               # TTC分卷压缩文件目录
    ├── create_chhsich_nerd_font.py
+   ├── create_ttc_font.py         # TTC文件创建脚本
    ├── test_fontforge.py
    ├── verify_font.py
    ├── install.sh                  # 安装脚本
@@ -73,7 +81,46 @@ sudo pacman -S fontforge
    python3 verify_font.py
    ```
 
-### 2. 安装字体到系统
+### 2. 创建TTC字体集合文件（可选）
+
+为了方便Windows用户安装，你可以创建一个包含所有字体样式的TTC文件：
+
+```bash
+# 创建TTC文件
+python3 create_ttc_font.py
+```
+
+这将生成 `ChHsichNerdFont.ttc` 文件，包含所有16个字体样式。Windows用户只需双击这个文件即可一次性安装所有字体样式。
+
+**TTC文件优势：**
+- 一次性安装所有字体样式
+- 节省安装时间
+- 更好的字体管理
+- Windows原生支持
+
+### 3. 创建分卷压缩文件（可选）
+
+为了方便下载和分发，你可以创建分卷压缩文件：
+
+```bash
+# 创建分卷压缩文件
+mkdir -p ttc_release
+cd ttc_release
+split -b 95M ../ChHsichNerdFont.ttc ChHsichNerdFont.part
+zip -9 ChHsichNerdFont.zip.001 ChHsichNerdFont.partaa
+zip -9 ChHsichNerdFont.zip.002 ChHsichNerdFont.partab
+zip -9 ChHsichNerdFont.zip.003 ChHsichNerdFont.partac
+rm ChHsichNerdFont.part*
+```
+
+这将生成三个分卷文件：
+- `ChHsichNerdFont.zip.001` (50MB)
+- `ChHsichNerdFont.zip.002` (50MB)
+- `ChHsichNerdFont.zip.003` (49MB)
+
+详细说明请查看 [TTC_INSTALLATION.md](TTC_INSTALLATION.md)。
+
+### 3. 安装字体到系统
 
 #### 自动安装（推荐）
 
@@ -102,7 +149,7 @@ cp -r ChHsichNerdFont/* ~/.local/share/fonts/ChHsichNerdFont/
 fc-cache -f -v
 ```
 
-### 3. 卸载字体
+### 4. 卸载字体
 
 #### 自动卸载（推荐）
 
@@ -149,12 +196,16 @@ fc-cache -f -v
 - ChHsichNerdFont-ExtraLight.ttf
 - ChHsichNerdFont-ExtraLightItalic.ttf
 
+**TTC文件（可选）：**
+- ChHsichNerdFont.ttc - 包含所有16个字体样式的集合文件（约284MB）
+
 ## 验证结果
 
 ✅ **成功创建了16个字体文件**
 - 所有字体文件都包含了所需的109个字符
 - 字体名称已正确更新为 "ChHsich Nerd Font"
 - 字符替换成功：ComicShannsMono Nerd Font 的英文字符已替换到 Maple Mono NF CN 中
+- ✅ **TTC文件创建成功** - 包含所有16个字体样式，方便Windows用户安装
 
 ## 许可证
 
