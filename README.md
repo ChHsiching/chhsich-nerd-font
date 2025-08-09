@@ -49,6 +49,7 @@ sudo pacman -S fontforge
    ├── create_chhsich_nerd_font.py
    ├── test_fontforge.py
    ├── verify_font.py
+   ├── LICENSE                    # 许可证文件
    └── README.md
    ```
 
@@ -104,6 +105,7 @@ sudo pacman -S fontforge
 5. **chore: 添加.gitignore文件** - 配置版本控制忽略规则
 6. **feat: 添加源字体文件** - 添加ComicShannsMono和MapleMono源字体
 7. **feat: 生成ChHsich Nerd Font字体文件** - 成功生成所有字体文件
+8. **docs: 更新README文档** - 完善项目文档和开发历史
 
 ### 技术实现
 - 使用FontForge Python API进行字体操作
@@ -112,12 +114,37 @@ sudo pacman -S fontforge
 - 自动匹配字体样式和字重
 - 提供完整的验证和测试工具
 
+## 许可证
+
+本项目基于以下开源字体创建：
+
+1. **ComicShannsMono Nerd Font**
+   - Copyright (c) 2018 Shannon Miwa
+   - Copyright (c) 2023 Jesus Gonzalez
+   - Licensed under MIT License
+
+2. **Maple Mono NF CN**
+   - Copyright 2022 The Maple Mono Project Authors
+   - Licensed under SIL Open Font License, Version 1.1
+
+**ChHsich Nerd Font** 采用 SIL Open Font License, Version 1.1 许可证。
+
+### 许可证要求：
+- ✅ 可以自由使用、修改和分发
+- ❌ **不能单独销售字体文件**
+- ✅ 可以与其他软件捆绑分发
+- ✅ 必须包含原始版权声明和许可证
+- ✅ 必须使用相同的许可证
+
+详细许可证信息请查看 [LICENSE](LICENSE) 文件。
+
 ## 注意事项
 
 - 脚本会自动匹配字体样式（Regular、Bold、Italic等）
 - 如果源字体中缺少某些字符，脚本会显示警告信息
 - 生成的字体将保留 Maple Mono NF CN 的中文字符和 ComicShannsMono Nerd Font 的英文字符
 - 字体名称会自动更新为 "ChHsich Nerd Font"
+- **请遵守许可证要求，不要单独销售字体文件**
 
 ## 故障排除
 
@@ -127,6 +154,6 @@ sudo pacman -S fontforge
 3. 是否有足够的磁盘空间
 4. 是否有写入权限
 
-## 许可证
+## 贡献
 
-请确保遵守原始字体的许可证要求。 
+欢迎提交Issue和Pull Request来改进这个项目。请确保遵守原始字体的许可证要求。 
