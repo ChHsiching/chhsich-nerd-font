@@ -9,6 +9,7 @@
 - 所有字体都包含了所需的109个字符
 - 字体名称已正确更新为"ChHsich Nerd Font"
 - 字符替换成功完成
+- 提供完整的安装和卸载脚本
 
 ## 功能
 
@@ -40,6 +41,8 @@ sudo pacman -S fontforge
 
 ## 使用方法
 
+### 1. 创建字体
+
 1. 确保项目目录结构如下：
    ```
    ChHsich-Nerd-Font/
@@ -49,7 +52,9 @@ sudo pacman -S fontforge
    ├── create_chhsich_nerd_font.py
    ├── test_fontforge.py
    ├── verify_font.py
-   ├── LICENSE                    # 许可证文件
+   ├── install.sh                  # 安装脚本
+   ├── uninstall.sh                # 卸载脚本
+   ├── LICENSE                     # 许可证文件
    └── README.md
    ```
 
@@ -67,6 +72,62 @@ sudo pacman -S fontforge
    ```bash
    python3 verify_font.py
    ```
+
+### 2. 安装字体到系统
+
+#### 自动安装（推荐）
+
+```bash
+# 运行安装脚本
+./install.sh
+```
+
+安装脚本会：
+- 自动检测系统类型（Linux/macOS）
+- 选择合适的字体安装目录
+- 复制字体文件到系统字体目录
+- 更新字体缓存
+- 创建卸载脚本
+
+#### 手动安装
+
+```bash
+# Linux系统
+sudo cp -r ChHsichNerdFont/* /usr/share/fonts/ChHsichNerdFont/
+sudo fc-cache -f -v
+
+# 或者安装到用户目录
+mkdir -p ~/.local/share/fonts/ChHsichNerdFont
+cp -r ChHsichNerdFont/* ~/.local/share/fonts/ChHsichNerdFont/
+fc-cache -f -v
+```
+
+### 3. 卸载字体
+
+#### 自动卸载（推荐）
+
+```bash
+# 运行卸载脚本
+./uninstall.sh
+```
+
+卸载脚本会：
+- 自动检测字体安装位置
+- 完全移除字体文件
+- 更新字体缓存
+- 清理残留文件
+
+#### 手动卸载
+
+```bash
+# 如果安装在系统目录
+sudo rm -rf /usr/share/fonts/ChHsichNerdFont
+sudo fc-cache -f -v
+
+# 如果安装在用户目录
+rm -rf ~/.local/share/fonts/ChHsichNerdFont
+fc-cache -f -v
+```
 
 ## 输出
 
@@ -106,6 +167,8 @@ sudo pacman -S fontforge
 6. **feat: 添加源字体文件** - 添加ComicShannsMono和MapleMono源字体
 7. **feat: 生成ChHsich Nerd Font字体文件** - 成功生成所有字体文件
 8. **docs: 更新README文档** - 完善项目文档和开发历史
+9. **feat: 添加许可证文件** - 添加SIL Open Font License 1.1许可证
+10. **feat: 添加安装和卸载脚本** - 提供完整的字体安装和卸载功能
 
 ### 技术实现
 - 使用FontForge Python API进行字体操作
@@ -113,6 +176,8 @@ sudo pacman -S fontforge
 - 支持批量处理多个字体文件
 - 自动匹配字体样式和字重
 - 提供完整的验证和测试工具
+- 自动检测系统类型和字体目录
+- 支持字体缓存更新和清理
 
 ## 许可证
 
@@ -145,6 +210,8 @@ sudo pacman -S fontforge
 - 生成的字体将保留 Maple Mono NF CN 的中文字符和 ComicShannsMono Nerd Font 的英文字符
 - 字体名称会自动更新为 "ChHsich Nerd Font"
 - **请遵守许可证要求，不要单独销售字体文件**
+- 安装脚本会自动检测系统类型并选择合适的安装目录
+- 卸载脚本会完全清理字体文件，不会留下残留
 
 ## 故障排除
 
@@ -153,6 +220,8 @@ sudo pacman -S fontforge
 2. 字体文件是否存在于正确的目录中
 3. 是否有足够的磁盘空间
 4. 是否有写入权限
+5. 安装脚本是否有执行权限（`chmod +x install.sh`）
+6. 系统是否支持字体缓存更新（`fc-cache`命令）
 
 ## 贡献
 
