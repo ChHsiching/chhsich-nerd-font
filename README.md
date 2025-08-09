@@ -2,6 +2,14 @@
 
 这个工具用于将 ComicShannsMono Nerd Font 的特定字符替换到 Maple Mono NF CN 中，创建 ChHsich Nerd Font。
 
+## 项目状态
+
+✅ **项目已完成**
+- 成功创建了16个ChHsich Nerd Font字体文件
+- 所有字体都包含了所需的109个字符
+- 字体名称已正确更新为"ChHsich Nerd Font"
+- 字符替换成功完成
+
 ## 功能
 
 - 将 ComicShannsMono Nerd Font 的以下字符替换到 Maple Mono NF CN 中：
@@ -37,7 +45,7 @@ sudo pacman -S fontforge
    ChHsich-Nerd-Font/
    ├── ComicShannsMono/           # ComicShannsMono Nerd Font 文件
    ├── MapleMono-NF-CN-unhinted/  # Maple Mono NF CN 字体文件
-   ├── ChHsichNerdFont/           # 输出目录 (空目录)
+   ├── ChHsichNerdFont/           # 输出目录 (生成的字体文件)
    ├── create_chhsich_nerd_font.py
    ├── test_fontforge.py
    ├── verify_font.py
@@ -85,6 +93,24 @@ sudo pacman -S fontforge
 - 所有字体文件都包含了所需的109个字符
 - 字体名称已正确更新为 "ChHsich Nerd Font"
 - 字符替换成功：ComicShannsMono Nerd Font 的英文字符已替换到 Maple Mono NF CN 中
+
+## 开发历史
+
+### 提交历史
+1. **docs: 初始化项目文档** - 添加项目README文档
+2. **feat: 添加FontForge测试脚本** - 创建FontForge安装验证脚本
+3. **feat: 实现字体创建核心功能** - 实现主要的字体创建逻辑
+4. **feat: 添加字体验证脚本** - 创建字体验证工具
+5. **chore: 添加.gitignore文件** - 配置版本控制忽略规则
+6. **feat: 添加源字体文件** - 添加ComicShannsMono和MapleMono源字体
+7. **feat: 生成ChHsich Nerd Font字体文件** - 成功生成所有字体文件
+
+### 技术实现
+- 使用FontForge Python API进行字体操作
+- 实现Unicode字符范围定义和替换
+- 支持批量处理多个字体文件
+- 自动匹配字体样式和字重
+- 提供完整的验证和测试工具
 
 ## 注意事项
 
