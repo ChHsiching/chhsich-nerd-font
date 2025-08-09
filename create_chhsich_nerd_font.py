@@ -98,6 +98,38 @@ def process_font_pair(comic_font_path, maple_font_path, output_path):
     maple_font.fontname = maple_font.fontname.replace("MapleMono-NF-CN", "ChHsichNerdFont")
     maple_font.fullname = maple_font.fullname.replace("Maple Mono NF CN", font_name)
     
+    # 更新SFNT名称表
+    print("更新SFNT名称表...")
+    new_sfnt_names = []
+    for name in maple_font.sfnt_names:
+        lang, name_id, value = name
+        
+        # 更新Family名称
+        if name_id == 'Family':
+            new_value = font_name
+        # 更新Fullname
+        elif name_id == 'Fullname':
+            new_value = value.replace("Maple Mono NF CN", font_name)
+        # 更新PostScriptName
+        elif name_id == 'PostScriptName':
+            new_value = value.replace("MapleMono-NF-CN", "ChHsichNerdFont")
+        # 更新UniqueID
+        elif name_id == 'UniqueID':
+            new_value = value.replace("MapleMono-NF-CN", "ChHsichNerdFont")
+        # 更新Preferred Family
+        elif name_id == 'Preferred Family':
+            new_value = font_name
+        # 更新Copyright（可选，如果你想完全移除Maple相关信息）
+        elif name_id == 'Copyright':
+            new_value = "Copyright 2024 ChHsiching (https://github.com/ChHsiching/chhsich-nerd-font). Based on ComicShannsMono Nerd Font."
+        else:
+            new_value = value
+        
+        new_sfnt_names.append((lang, name_id, new_value))
+    
+    # 应用新的SFNT名称
+    maple_font.sfnt_names = new_sfnt_names
+    
     # 确保输出目录存在
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     
